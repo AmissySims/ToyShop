@@ -10,9 +10,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25*"/>
-            <RowDefinition Height="27*"/>
-            <RowDefinition Height="356*"/>
-            <RowDefinition Height="26*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="336*"/>
+            <RowDefinition Height="41*"/>
         </Grid.RowDefinitions>
         <Rectangle Fill="Coral"></Rectangle>
         <StackPanel>
@@ -20,7 +20,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="0,25,0,0" Grid.RowSpan="2">
             <TextBlock Margin="5">Сортировка</TextBlock>
-            <ComboBox Width="100" Margin="5" x:Name="SortCb" SelectionChanged="SortCb_SelectionChanged" >
+            <ComboBox Width="100"  Margin="5" x:Name="SortCb" SelectionChanged="SortCb_SelectionChanged" >
                 <ComboBoxItem>По возрастанию</ComboBoxItem>
                 <ComboBoxItem>По убыванию</ComboBoxItem>
             </ComboBox>
@@ -50,7 +50,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <StackPanel Grid.Row="3" Orientation="Horizontal">
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,4,0,0">
             <Button x:Name="AddBtn"  Margin="5" Visibility="Collapsed">Добавить</Button>
             <Button x:Name="EditBtn"  Margin="5" Visibility="Collapsed">Редактировать</Button>
             <Button x:Name="DeleteBtn"  Margin="5" Visibility="Collapsed">Удалить</Button>
