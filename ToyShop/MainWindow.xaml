@@ -11,41 +11,50 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25*"/>
             <RowDefinition Height="27*"/>
-            <RowDefinition Height="382*"/>
+            <RowDefinition Height="356*"/>
+            <RowDefinition Height="26*"/>
         </Grid.RowDefinitions>
         <Rectangle Fill="Coral"></Rectangle>
         <StackPanel>
             <TextBlock HorizontalAlignment="Center" FontSize="18">Toy Shop</TextBlock>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Margin="0,25,0,0" Grid.RowSpan="2">
             <TextBlock Margin="5">Сортировка</TextBlock>
             <ComboBox Width="100" Margin="5" x:Name="SortCb" SelectionChanged="SortCb_SelectionChanged" >
                 <ComboBoxItem>По возрастанию</ComboBoxItem>
                 <ComboBoxItem>По убыванию</ComboBoxItem>
             </ComboBox>
-            <TextBlock>Фильтрация</TextBlock>
+            <TextBlock  Margin="5">Фильтрация</TextBlock>
             <ComboBox Width="100" Margin="5" x:Name="FilterCb" SelectionChanged="FilterCb_SelectionChanged" >
-                <ComboBoxItem></ComboBoxItem>
-                <ComboBoxItem></ComboBoxItem>
+                <ComboBoxItem>В наличии</ComboBoxItem>
+                <ComboBoxItem>Не в наличии</ComboBoxItem>
             </ComboBox>
             <TextBlock Margin="5">Поиск</TextBlock>
-            <TextBox Width="200" x:Name="NameSearchTb" TextChanged="NameSearchTb_TextChanged"></TextBox>
+            <TextBox Width="200"  Margin="5" x:Name="NameSearchTb" TextChanged="NameSearchTb_TextChanged"></TextBox>
+            <TextBlock Margin="5">Ввести код админа</TextBlock>
+            <TextBox Width="50"  Margin="5" x:Name="CodTb" ></TextBox>
         </StackPanel>
-        <ListView Grid.Row="2" x:Name="ShopList" ItemsSource="{Binding Toys, ElementName=Root}">
+
+        <ListView Grid.Row="2" x:Name="ShopList" ItemsSource="{Binding Toys, ElementName=Root}" Margin="0,27,0,0" >
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Width="250" DisplayMemberBinding="{Binding Name}" >Название</GridViewColumn>
+                        <GridViewColumn Width="250" DisplayMemberBinding="{Binding Name}">Название</GridViewColumn>
                         <GridViewColumn Width="300" DisplayMemberBinding="{Binding Description}">Описание</GridViewColumn>
                         <GridViewColumn Width="50" DisplayMemberBinding="{Binding Weight}">Вес</GridViewColumn>
                         <GridViewColumn Width="50" DisplayMemberBinding="{Binding Height}">Высота</GridViewColumn>
                         <GridViewColumn Width="50" DisplayMemberBinding="{Binding Width}">Ширина</GridViewColumn>
                         <GridViewColumn Width="50" DisplayMemberBinding="{Binding Cost}">Стоимость</GridViewColumn>
                         <GridViewColumn Width="50" DisplayMemberBinding="{Binding IsAvailable}">В наличии</GridViewColumn>
-                        </GridView.Columns>
+                    </GridView.Columns>
                 </GridView>
             </ListView.View>
         </ListView>
-
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Button x:Name="AddBtn"  Margin="5" Visibility="Collapsed">Добавить</Button>
+            <Button x:Name="EditBtn"  Margin="5" Visibility="Collapsed">Редактировать</Button>
+            <Button x:Name="DeleteBtn"  Margin="5" Visibility="Collapsed">Удалить</Button>
+            <Button x:Name="Admin1" Margin="5" Click="Admin1_Click" >Admin</Button>
+        </StackPanel>
     </Grid>
 </Window>
