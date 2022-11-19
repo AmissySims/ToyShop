@@ -46,14 +46,6 @@
           <Property Name="Count" Type="int" />
           <Property Name="OrderId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Login" Type="nvarchar(max)" />
-          <Property Name="Password" Type="nvarchar(max)" />
-        </EntityType>
         <Association Name="FK_ToyOrder_Orderr">
           <End Role="Orderr" Type="Self.Orderr" Multiplicity="1" />
           <End Role="ToyOrder" Type="Self.ToyOrder" Multiplicity="*" />
@@ -83,7 +75,6 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Toy" EntityType="Self.Toy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ToyOrder" EntityType="Self.ToyOrder" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ToyOrder_Orderr" Association="Self.FK_ToyOrder_Orderr">
             <End Role="Orderr" EntitySet="Orderr" />
             <End Role="ToyOrder" EntitySet="ToyOrder" />
@@ -143,14 +134,6 @@
           <NavigationProperty Name="Orderr" Relationship="Self.FK_ToyOrder_Orderr" FromRole="ToyOrder" ToRole="Orderr" />
           <NavigationProperty Name="Toy" Relationship="Self.FK_ToyOrder_Toy" FromRole="ToyOrder" ToRole="Toy" />
         </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <Association Name="FK_ToyOrder_Orderr">
           <End Role="Orderr" Type="Self.Orderr" Multiplicity="1" />
           <End Role="ToyOrder" Type="Self.ToyOrder" Multiplicity="*" />
@@ -180,7 +163,6 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Toy" EntityType="Self.Toy" />
           <EntitySet Name="ToyOrder" EntityType="Self.ToyOrder" />
-          <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK_ToyOrder_Orderr" Association="Self.FK_ToyOrder_Orderr">
             <End Role="Orderr" EntitySet="Orderr" />
             <End Role="ToyOrder" EntitySet="ToyOrder" />
@@ -238,15 +220,6 @@
                 <ScalarProperty Name="ToyId" ColumnName="ToyId" />
                 <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="ShopBdModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

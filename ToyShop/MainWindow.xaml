@@ -5,28 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToyShop"
         mc:Ignorable="d"
+        Name="Root"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="43*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="382*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
+        <Rectangle Fill="Coral"></Rectangle>
+        <StackPanel>
+            <TextBlock HorizontalAlignment="Center" FontSize="18">Toy Shop</TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
             <TextBlock Margin="5">Сортировка</TextBlock>
-            <ComboBox Width="100" Margin="5" x:Name="SortCb" >
+            <ComboBox Width="100" Margin="5" x:Name="SortCb" SelectionChanged="SortCb_SelectionChanged" >
                 <ComboBoxItem>По возрастанию</ComboBoxItem>
                 <ComboBoxItem>По убыванию</ComboBoxItem>
             </ComboBox>
             <TextBlock>Фильтрация</TextBlock>
-            <ComboBox Width="100" Margin="5" x:Name="FilterCb" >
+            <ComboBox Width="100" Margin="5" x:Name="FilterCb" SelectionChanged="FilterCb_SelectionChanged" >
                 <ComboBoxItem></ComboBoxItem>
                 <ComboBoxItem></ComboBoxItem>
             </ComboBox>
             <TextBlock Margin="5">Поиск</TextBlock>
-            <TextBox Width="200" x:Name="NameSearchTb"></TextBox>
+            <TextBox Width="200" x:Name="NameSearchTb" TextChanged="NameSearchTb_TextChanged"></TextBox>
         </StackPanel>
-        <ListView Grid.Row="1" x:Name="ShopList">
-            
+        <ListView Grid.Row="2" x:Name="ShopList" ItemsSource="{Binding Toys, ElementName=Root}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Width="250" DisplayMemberBinding="{Binding Name}" >Название</GridViewColumn>
+                        <GridViewColumn Width="300" DisplayMemberBinding="{Binding Description}">Описание</GridViewColumn>
+                        <GridViewColumn Width="50" DisplayMemberBinding="{Binding Weight}">Вес</GridViewColumn>
+                        <GridViewColumn Width="50" DisplayMemberBinding="{Binding Height}">Высота</GridViewColumn>
+                        <GridViewColumn Width="50" DisplayMemberBinding="{Binding Width}">Ширина</GridViewColumn>
+                        <GridViewColumn Width="50" DisplayMemberBinding="{Binding Cost}">Стоимость</GridViewColumn>
+                        <GridViewColumn Width="50" DisplayMemberBinding="{Binding IsAvailable}">В наличии</GridViewColumn>
+                        </GridView.Columns>
+                </GridView>
+            </ListView.View>
         </ListView>
 
     </Grid>

@@ -29,6 +29,5 @@ namespace ToyShop.Components
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Toy> Toy { get; set; }
         public virtual DbSet<ToyOrder> ToyOrder { get; set; }
-        public virtual DbSet<User> User { get; set; }
     }
 }
