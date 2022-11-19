@@ -7,6 +7,27 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="5">Сортировка</TextBlock>
+            <ComboBox Width="100" Margin="5" x:Name="SortCb" >
+                <ComboBoxItem>По возрастанию</ComboBoxItem>
+                <ComboBoxItem>По убыванию</ComboBoxItem>
+            </ComboBox>
+            <TextBlock>Фильтрация</TextBlock>
+            <ComboBox Width="100" Margin="5" x:Name="FilterCb" >
+                <ComboBoxItem></ComboBoxItem>
+                <ComboBoxItem></ComboBoxItem>
+            </ComboBox>
+            <TextBlock Margin="5">Поиск</TextBlock>
+            <TextBox Width="200" x:Name="NameSearchTb"></TextBox>
+        </StackPanel>
+        <ListView Grid.Row="1" x:Name="ShopList">
+            
+        </ListView>
+
     </Grid>
 </Window>
